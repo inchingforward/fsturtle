@@ -1,0 +1,11 @@
+export var canvas = document.getElementsByTagName('canvas')[0];
+export var ctx = canvas.getContext('2d');
+export var userInput = document.getElementsByTagName('textarea')[0];
+export var docs = document.getElementsByTagName('div')[0];
+console.log(ctx);
+console.log(userInput);
+console.log(docs);
+ctx.font = "Georgia 20px";
+ctx.fillText("Hello, world!", 20, 10, 100);
+docs.innerHTML = "Hello, docs!";
+userInput.value = "Hello, user input!";

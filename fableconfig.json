@@ -1,0 +1,8 @@
+{
+    "projFile": "./App.fsx",
+    "outDir": "./public",
+    "watch": true,
+    "scripts": {
+        "postbuild-once": "./node_modules/.bin/webpack --watch"
+    }
+}
