@@ -83,10 +83,10 @@ var docs = document.getElementsByTagName('div')[0];
 console.log(ctx);
 console.log(userInput);
 console.log(docs);
-ctx.font = "Georgia 20px";
-ctx.fillText("Hello, world!", 20, 10, 100);
-docs.innerHTML = "Hello, docs!";
-userInput.value = "Hello, user input!";
+ctx.font = "30px Georgia";
+ctx.fillText("Canvas", 0, 26, 400);
+docs.innerHTML = "Docs";
+userInput.value = "Input";
 
 /***/ })
 /******/ ]);

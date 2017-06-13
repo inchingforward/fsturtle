@@ -12,7 +12,7 @@ console.log ctx
 console.log userInput
 console.log docs
 
-ctx.font <- "Georgia 20px"
-ctx.fillText("Hello, world!", 20.0, 10.0, 100.0)
-docs.innerHTML <- "Hello, docs!"
-userInput.value <- "Hello, user input!"
+ctx.font <- "30px Georgia"
+ctx.fillText("Canvas", 0.0, 26.0, 400.0)
+docs.innerHTML <- "Docs"
+userInput.value <- "Input"

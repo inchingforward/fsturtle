@@ -1,0 +1,35 @@
+html { 
+  font-family: Georgia; 
+  padding: 0;
+  margin: 0;
+}
+
+#docs { 
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  width: 400px;
+  height: 400px;
+  border: 1px solid green; 
+
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 400px;
+  width: 400px;
+  height: 600px;
+  border: 1px solid red;
+}
+
+#console {
+  position: absolute;
+  top: 400px;
+  left: 0;
+  width: 400px;
+  height: 200px;
+  border: 1px solid blue;
+  padding: 0;
+  margin: 0;
+}
