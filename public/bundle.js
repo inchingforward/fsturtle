@@ -72,21 +72,28 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["initCanvas"] = initCanvas;
+/* harmony export (immutable) */ __webpack_exports__["textChanged"] = textChanged;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvas", function() { return canvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ctx", function() { return ctx; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInput", function() { return userInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "docs", function() { return docs; });
+function initCanvas(ctx) {
+  ctx.font = "30px Georgia";
+  ctx.fillText("Canvas", 0, 26, 400);
+}
+function textChanged(text) {
+  console.log(text);
+  return null;
+}
 var canvas = document.getElementsByTagName('canvas')[0];
 var ctx = canvas.getContext('2d');
 var userInput = document.getElementsByTagName('textarea')[0];
 var docs = document.getElementsByTagName('div')[0];
-console.log(ctx);
-console.log(userInput);
-console.log(docs);
-ctx.font = "30px Georgia";
-ctx.fillText("Canvas", 0, 26, 400);
-docs.innerHTML = "Docs";
-userInput.value = "Input";
+userInput.addEventListener('keyup', function (e) {
+  return textChanged(userInput.value);
+});
+initCanvas(ctx);
 
 /***/ })
 /******/ ]);
