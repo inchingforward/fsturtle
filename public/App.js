@@ -5,6 +5,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 import { setType } from "fable-core/Symbol";
 import _Symbol from "fable-core/Symbol";
 import { compareRecords, equalsRecords } from "fable-core/Util";
+import { initialize } from "fable-core/List";
 export var Turtle = function () {
   function Turtle(x, y) {
     _classCallCheck(this, Turtle);
@@ -40,9 +41,16 @@ export var Turtle = function () {
   return Turtle;
 }();
 setType("App.Turtle", Turtle);
+export function rotate(turtle, degrees) {
+  return initialize(150, function (index) {
+    return new Turtle(turtle.x + index, turtle.y);
+  });
+}
 export function drawTurtle(ctx, turtle) {
   ctx.save();
   ctx.translate(turtle.x, turtle.y);
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "black";
   ctx.beginPath();
   ctx.moveTo(0, -10);
   ctx.lineTo(-7, 10);
@@ -52,21 +60,25 @@ export function drawTurtle(ctx, turtle) {
   ctx.stroke();
   ctx.restore();
 }
-export function initCanvas(ctx, turtle) {
-  ctx.font = "30px Georgia";
-  ctx.fillText("Canvas", 0, 26, 400);
-  drawTurtle(ctx, turtle);
+export function animate(ctx, turtles) {
+  if (turtles.tail != null) {
+    drawTurtle(ctx, turtles.head);
+    window.setTimeout(function (_arg1) {
+      animate(ctx, turtles.tail);
+    }, 0);
+  }
 }
-export function textChanged(text) {
-  console.log(text);
-  return null;
+export function initCanvas(ctx, turtle) {
+  drawTurtle(ctx, turtle);
 }
 export var canvas = document.getElementsByTagName('canvas')[0];
 export var ctx = canvas.getContext('2d');
 export var userInput = document.getElementsByTagName('textarea')[0];
-export var docs = document.getElementsByTagName('div')[0];
-userInput.addEventListener('keyup', function (e) {
-  return textChanged(userInput.value);
-});
 export var initialTurtle = new Turtle(canvas.width / 2, canvas.height / 2);
+export var runButton = document.getElementById("run");
+runButton.addEventListener('click', function (_arg1) {
+  animate(ctx, rotate(initialTurtle, 30));
+  return null;
+});
+export var docs = document.getElementsByTagName('div')[0];
 initCanvas(ctx, initialTurtle);
